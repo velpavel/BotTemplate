@@ -24,6 +24,10 @@ CREATE TABLE user_operation (Telegramid INTEGER UNIQUE NOT NULL PRIMARY KEY, cur
 DROP INDEX IF EXISTS idx_user_operation_telegramid;
 CREATE UNIQUE INDEX idx_user_operation_telegramid ON user_operation (Telegramid);
 
+-- Таблица: log
+DROP TABLE IF EXISTS log;
+CREATE TABLE log (datetime DATETIME, from_who, user_id, msg_text TEXT, operation TEXT, status, additional_info, function, comment TEXT);
+
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;'''
 

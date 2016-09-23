@@ -3,6 +3,8 @@ Need pyTelegramBotAPI
 
 Шаблон для Телеграм ботов.
 Нужен pyTelegramBotAPI
+pip install pytelegrambotapi
+
 Для начала запустить init_new.py
 Потом в созданном config.ini прописать
 Token

@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+'''Функции админа.
+
+PaVel 09.2016
+'''
 import configparser
 import db_connector
 from telebot import types

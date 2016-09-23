@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+'''Файл для инициализации/установки бота.
+Создаёт базу данных, создаёт файл config.ini из шаблона config_skeleton.ini.
+Посе запуска необходимо будет внести Token в config.ini
+
+PaVel 09.2016
+'''
 import sqlite3
 import configparser
 import shutil, os
@@ -12,11 +19,11 @@ SQLITEDB = config['DB']['Dbfile']
 sql = '''PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 
--- Таблица: users
+-- Таблица: users - информация о пользователях
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (Telegramid INTEGER PRIMARY KEY NOT NULL, Phone INTEGER, Name VARCHAR (50), Email VARCHAR (50), RegistrationDone BOOLEAN DEFAULT (0) NOT NULL, RegistrationDate DATETIME);
 
--- Таблица: user_operation
+-- Таблица: user_operation - сохраняется текущий статус для каждого пользователя
 DROP TABLE IF EXISTS user_operation;
 CREATE TABLE user_operation (Telegramid INTEGER UNIQUE NOT NULL PRIMARY KEY, current_operation TEXT, operation_status, additional_info TEXT);
 

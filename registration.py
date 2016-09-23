@@ -1,4 +1,18 @@
 # -*- coding: utf-8 -*-
+'''Регистраиця пользователя
+Основной поток register_flow
+
+Настраивается через config.ini
+enable = 1 - включить регистраицю.
+name = 1 - требовать имя пользователя
+phone = 1 - требовать телефон пользователя
+email = 1 - требовать email пользователя
+verification_email = 1 - email требует проверки.
+Для работы посдедней функции необходимо подключить почтовый сервер.
+На указанный email будет высылаться код для проверки, который надо ввести в Telegram
+
+PaVel 09.2016
+'''
 import db_connector
 import configparser
 from telebot import types

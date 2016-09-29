@@ -9,7 +9,8 @@ from telebot import types
 
 config = configparser.ConfigParser()
 config.read('config.ini')
-admin_id = int(config['BASE']['Admin_id'])
+admin_id = config['BASE'].get('Admin_id')
+admin_id = int(admin_id) if admin_id.isdigit() else 0
 
 admin_commands = ['admin', 'last_users', 'log']
 

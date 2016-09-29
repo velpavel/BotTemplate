@@ -24,7 +24,8 @@ config = configparser.ConfigParser()
 config.read(config_file)
 
 bot = telebot.TeleBot(config['BASE']['Token'])
-admin_id = int(config['BASE']['Admin_id'])
+admin_id = config['BASE'].get('Admin_id')
+admin_id = int(admin_id) if admin_id.isdigit() else 0
 
 @bot.message_handler(commands=['start', 'help'])
 def handle_start_help(message):
